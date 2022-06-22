@@ -1,64 +1,76 @@
-﻿@model BMIModel
-    
-    <div class="d-flex justify-content-center">
-        <div class="box">
+﻿@model Entity.Concrete.BMIModel
+<section class="py-5">
+    <div class="container">
 
-            <div class="form-group">
-                @Html.ValidationMessageFor(m => m.Height)<br />
-                @Html.ValidationMessageFor(m => m.Weight)
-                <div class="row justify-content-around">
-                    <div class="col-3">
-                        @Html.DisplayNameFor(a => a.Height)
-                    </div>
-                    <div class="col-9">
-                        @Html.TextBoxFor(a => a.Height, new { @class = "form-control" })
-                    </div>
-                </div>
-
-            </div>
-            <div class="form-group">
-
-                <div class="row justify-content-around">
-                    <div class="col-3">
-                        @Html.DisplayNameFor(a => a.Weight)
-                    </div>
-                    <div class="col-9">
-                        @Html.TextBoxFor(a => a.Weight, new { @class = "form-control" })
-                    </div>
-                </div>
-            </div>
-             <button type="submit" id="submit" value="Submit" class="btn btn-primary mt-1">Calculate</button>
-            
-            <button type="reset"  id="reset" class="btn btn-danger mt-1">Reset</button>
-            <br><br />
-            <p>Your BMI : <strong id="result"></strong></p>
-            <p>BMI Result : <strong id="message"></strong></p>
-            <br />
-            <br />
-            <div class="row justify-content-around">
-                <div class="card text-white bg-secondary col-2" id="under">
-                    < 18 under weight
-                </div>
-                <div class="card text-white bg-secondary col-2" id="normal">
-                    18.5 - 25 Normal
-                </div>
-                <div class="card text-white bg-secondary  col-2" id="over">
-                    25 - 30 Over Weight
-                </div>
-                <div class="card text-white bg-secondary  col-2" id="obese">
-                    > 30 Obese
-                </div>
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <header class="text-center pb-5">
+                    <h1 class="h2">BMI Calculator</h1>
+                </header>
             </div>
         </div>
-       
 
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <blockquote class="blockquote blockquote-custom bg-white p-5 shadow rounded">
+                    <div class="form-group">
+                        @Html.ValidationMessageFor(m => m.Height)<br />
+                        @Html.ValidationMessageFor(m => m.Weight)
+                        <div class="row justify-content-around">
+                            <div class="col-3">
+                                @Html.DisplayNameFor(a => a.Height)
+                            </div>
+                            <div class="col-9">
+                                @Html.TextBoxFor(a => a.Height, new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="row justify-content-around">
+                            <div class="col-3">
+                                @Html.DisplayNameFor(a => a.Weight)
+                            </div>
+                            <div class="col-9">
+                                @Html.TextBoxFor(a => a.Weight, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <footer class="pt-4 mt-4 border-top">
+                        <cite id="author" title="Source Title">Your BMI :<strong id="result"></strong></cite><br>
+                        <cite id="author" title="Source Title">BMI Result :<strong id="message"></strong></cite>
+                        <div class="float-right">
+                            <button type="submit" id="submit" value="Submit" class="btn btn-primary">Calculate</button>
+                            <button type="reset" id="reset" class="btn btn-danger">Reset</button>
+                        </div>
+                    </footer>
+                    <footer class="pt-4 mt-4 border-top">
+                        <div class="row justify-content-around">
+                            <div class="card text-white bg-dark col-2" id="under">
+                                <h6>< 18 under weight</h6> 
+                            </div>
+                            <div class="card text-white bg-dark col-2" id="normal">
+                                <h6>18.5 - 25 Normal</h6>
+                            </div>
+                            <div class="card text-white bg-dark col-2" id="over">
+                                <h6>25 - 30 Over Weight</h6>
+                            </div>
+                            <div class="card text-white bg-dark col-2" id="obese">
+                                <h6>> 30 Obese</h6>
+                            </div>
+                        </div>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
     </div>
-
+</section>
 
     <script type="text/javascript">
         $("#submit").click(function () {
-            $("#obese, #over").removeClass("bg-danger");
-            $("#normal,#under").removeClass("bg-success");
+            $("#obese, #over").removeClass("bg-danger").addClass('bg-dark');
+            $("#normal,#under").removeClass("bg-success").addClass('bg-dark');
             $.ajax({
                 type: "POST",
                 url: "/BMI/GetBMI",
@@ -72,13 +84,13 @@
                     $("#message").html(data.message);
 
                     if (data.result > 30)
-                        $("#obese").addClass("bg-danger");
+                        $('#obese').removeClass('bg-dark').addClass('bg-danger');
                     else if (data.result > 25)
-                        $("#over").addClass("bg-danger");
+                        $("#over").removeClass('bg-dark').addClass("bg-danger");
                     else if (data.result > 18.5)
-                        $("#normal").addClass("bg-success");
+                        $("#normal").removeClass('bg-dark').addClass("bg-success");
                     else if(data.result > 0)
-                        $("#under").addClass("bg-success");
+                        $("#under").removeClass('bg-dark').addClass("bg-success");
 
                 }
             });

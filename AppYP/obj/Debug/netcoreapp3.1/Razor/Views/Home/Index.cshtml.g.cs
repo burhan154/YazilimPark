@@ -21,13 +21,13 @@ using AppYP;
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\yazilim.park5\source\repos\AppYP\AppYP\Views\_ViewImports.cshtml"
-using AppYP.Models;
+using Entity.Concrete;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8ba88bc543b3fd036fc95bc662e182165058cb8d", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7589dc3ec8ce99a08509a7276c4ec204319d7b58", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"92b6b9cc67d89162ae5d1ff53d3b41274f794e2c", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("nav-link text-dark"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -66,7 +66,7 @@ using AppYP.Models;
 #line hidden
 #nullable disable
             WriteLiteral("    <div class=\"col-md-4\">\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8ba88bc543b3fd036fc95bc662e182165058cb8d3975", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8ba88bc543b3fd036fc95bc662e182165058cb8d3978", async() => {
                 WriteLiteral("\r\n            <div class=\"profile-card-2\">\r\n                <img");
                 BeginWriteAttribute("src", " src=", 262, "", 279, 1);
 #nullable restore

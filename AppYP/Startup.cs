@@ -1,4 +1,3 @@
-using AppYP.Models;
 using DataAccess.Concrete;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

@@ -1,10 +1,10 @@
-﻿using AppYP.Models;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Entity.Concrete;
 
 namespace AppYP.Controllers
 {
@@ -30,7 +30,7 @@ namespace AppYP.Controllers
                 }
                 double result = (Height * Height) / 10000;
                 result = Weight / result;
-
+                result = Math.Round(result, 2);
                 string message;
 
                 if (result > 30)
@@ -47,74 +47,6 @@ namespace AppYP.Controllers
                 }
             return Json(new { result = 0, message = "invalid" });
 
-        }
-
-        public ActionResult Details(int id)
-        {
-        return View();
-        }
-
-        // GET: BMIController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: BMIController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: BMIController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: BMIController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: BMIController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: BMIController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }

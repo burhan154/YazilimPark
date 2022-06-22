@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace AppYP.Models
+namespace Entity.Concrete
 {
     public class QuoteModel
     {
@@ -12,6 +11,6 @@ namespace AppYP.Models
     }
     public class QuotesModel
     {
-        public List<QuoteModel> quotes{ get; set; }
+        public List<QuoteModel> quotes { get; set; }
     }
 }
