@@ -53,8 +53,6 @@ namespace DataAccess.Concrete
                 //Handle it
             }
 
-
-
             return weather;
         }
 

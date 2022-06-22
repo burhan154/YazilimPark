@@ -9,19 +9,27 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet" />
 
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 mt-3">
-            <div class="card p-4" style="color: #4B515D; border-radius: 35px; height: 100%;">
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-4 mt-3">
+            <div class="card p-4 shadow" style="color: #4B515D; border-radius: 35px; height: 100%;">
                 <div class="row justify-content-center">
-                    <div class="col-md-6 mt-3">
-                        <div class="input-group mt-5 p-2">
-                            <input type="text" class="form-control" id="city" placeholder="City" aria-label="City" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button id="search" class="btn btn-outline-secondary" type="button">Search</button>
+                    <div class="col-md-12 mt-3 mb-3">
+                        <header class="text-center pb-5">
+                            <h1 class="h2">Weather App</h1>
+                        </header>
+
+                        <div class="card shadow mb-2" style="color: #4B515D; border-radius: 35px;" >
+                            <div class="card-body p-4">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="city" placeholder="City" aria-label="City" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <button id="search" class="btn btn-outline-secondary" type="button">Search</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="card" style="color: #4B515D; border-radius: 35px; display: none;" id="searchBox">
+                        <div class="card shadow" style="color: #4B515D; border-radius: 35px; display: none;" id="searchBox">
                             <div class="card-body p-4">
 
                                 <div class="d-flex">
@@ -54,16 +62,31 @@
 
                             </div>
                         </div>
+
+
+                        <div class="card shadow" style="color: #4B515D; border-radius: 35px; display: none;" id="error">
+                            <div class="card-body p-4">
+
+                                <div class="d-flex">
+                                    <h6 class="flex-grow-1" id="er1">Hata</h6>
+                                </div>
+
+                                <div class="d-flex flex-column text-center mt-5 mb-4">
+                                    <h2 style="color: #1C2331;" id="er2">Bulunamadı</h2>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-7">
             <div class="row" id="list">
                 @foreach (var item in Model)
                 {
                     <div class="col-md-6 mt-3" id="item">
-                        <div class="card" style="color: #4B515D; border-radius: 35px;">
+                        <div class="card shadow" style="color: #4B515D; border-radius: 35px;">
                             <div class="card-body p-4">
 
                                 <div class="d-flex">
@@ -133,27 +156,38 @@
                 success: function (data) {
                     //$('#item').splice(-1);
                     //GetCities();
-                    $("#title").html(data.name);
-                    $("#country").html(data.sys.country);
-                    $("#temp").html((parseFloat(data.main.temp) - 273.15).toFixed(1) + '°C');
-                    $("#wind").html(data.wind.speed+" m/s");
-                    $("#humidity").html(data.main.humidity + "%");
-                    $("#description").html(data.weather[0].description);
-                    $("#image").attr("src", "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@@2x.png");
+                    if (data.name == null) {
+                        $("#er2").html("Bulunamadı");
+                        $("#searchBox").fadeOut(1);
+                        $("#error").fadeIn(500);
+                    } else {
+                        $("#title").html(data.name);
+                        $("#country").html(data.sys.country);
+                        $("#temp").html((parseFloat(data.main.temp) - 273.15).toFixed(1) + '°C');
+                        $("#wind").html(data.wind.speed + " m/s");
+                        $("#humidity").html(data.main.humidity + "%");
+                        $("#description").html(data.weather[0].description);
+                        $("#image").attr("src", "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@@2x.png");
 
-                    var date = new Date(data.sys.sunrise * 1000);
-                    var hours = date.getHours();
-                    var minutes = "0" + date.getMinutes();
-                    var seconds = "0" + date.getSeconds();
-                    var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-                    $("#sun").html(formattedTime);
+                        var date = new Date(data.sys.sunrise * 1000);
+                        var hours = date.getHours();
+                        var minutes = "0" + date.getMinutes();
+                        var seconds = "0" + date.getSeconds();
+                        var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+                        $("#sun").html(formattedTime);
 
 
-                    //$("#item").last().fadeOut();
-                    //$("#item").last().remove();
-
-                    $("#searchBox").fadeIn();
-                    $("#item").last().after($("#item").first());
+                        //$("#item").last().fadeOut();
+                        //$("#item").last().remove();
+                        $("#error").fadeOut(1);
+                        $("#searchBox").fadeIn(500);
+                        $("#item").last().after($("#item").first());
+                    }
+                    
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
                 }
             });
         });
