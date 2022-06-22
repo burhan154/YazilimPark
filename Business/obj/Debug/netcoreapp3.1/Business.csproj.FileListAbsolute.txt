@@ -1,0 +1,10 @@
+C:\Users\yazilim.park5\source\repos\AppYP\Business\bin\Debug\netcoreapp3.1\Business.deps.json
+C:\Users\yazilim.park5\source\repos\AppYP\Business\bin\Debug\netcoreapp3.1\Business.dll
+C:\Users\yazilim.park5\source\repos\AppYP\Business\bin\Debug\netcoreapp3.1\Business.pdb
+C:\Users\yazilim.park5\source\repos\AppYP\Business\obj\Debug\netcoreapp3.1\Business.csproj.AssemblyReference.cache
+C:\Users\yazilim.park5\source\repos\AppYP\Business\obj\Debug\netcoreapp3.1\Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yazilim.park5\source\repos\AppYP\Business\obj\Debug\netcoreapp3.1\Business.AssemblyInfoInputs.cache
+C:\Users\yazilim.park5\source\repos\AppYP\Business\obj\Debug\netcoreapp3.1\Business.AssemblyInfo.cs
+C:\Users\yazilim.park5\source\repos\AppYP\Business\obj\Debug\netcoreapp3.1\Business.csproj.CoreCompileInputs.cache
+C:\Users\yazilim.park5\source\repos\AppYP\Business\obj\Debug\netcoreapp3.1\Business.dll
+C:\Users\yazilim.park5\source\repos\AppYP\Business\obj\Debug\netcoreapp3.1\Business.pdb

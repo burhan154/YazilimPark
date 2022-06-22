@@ -1,0 +1,13 @@
+C:\Users\yazilim.park5\source\repos\AppYP\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.csproj.AssemblyReference.cache
+C:\Users\yazilim.park5\source\repos\AppYP\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yazilim.park5\source\repos\AppYP\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.AssemblyInfoInputs.cache
+C:\Users\yazilim.park5\source\repos\AppYP\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.AssemblyInfo.cs
+C:\Users\yazilim.park5\source\repos\AppYP\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\yazilim.park5\source\repos\AppYP\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.deps.json
+C:\Users\yazilim.park5\source\repos\AppYP\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.dll
+C:\Users\yazilim.park5\source\repos\AppYP\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.pdb
+C:\Users\yazilim.park5\source\repos\AppYP\DataAccess\bin\Debug\netcoreapp3.1\Entity.dll
+C:\Users\yazilim.park5\source\repos\AppYP\DataAccess\bin\Debug\netcoreapp3.1\Entity.pdb
+C:\Users\yazilim.park5\source\repos\AppYP\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.csproj.CopyComplete
+C:\Users\yazilim.park5\source\repos\AppYP\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.dll
+C:\Users\yazilim.park5\source\repos\AppYP\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.pdb

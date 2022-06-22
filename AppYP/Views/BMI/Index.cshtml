@@ -1,0 +1,90 @@
+﻿@model BMIModel
+    
+    <div class="d-flex justify-content-center">
+        <div class="box">
+
+            <div class="form-group">
+                @Html.ValidationMessageFor(m => m.Height)<br />
+                @Html.ValidationMessageFor(m => m.Weight)
+                <div class="row justify-content-around">
+                    <div class="col-3">
+                        @Html.DisplayNameFor(a => a.Height)
+                    </div>
+                    <div class="col-9">
+                        @Html.TextBoxFor(a => a.Height, new { @class = "form-control" })
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group">
+
+                <div class="row justify-content-around">
+                    <div class="col-3">
+                        @Html.DisplayNameFor(a => a.Weight)
+                    </div>
+                    <div class="col-9">
+                        @Html.TextBoxFor(a => a.Weight, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+             <button type="submit" id="submit" value="Submit" class="btn btn-primary mt-1">Calculate</button>
+            
+            <button type="reset"  id="reset" class="btn btn-danger mt-1">Reset</button>
+            <br><br />
+            <p>Your BMI : <strong id="result"></strong></p>
+            <p>BMI Result : <strong id="message"></strong></p>
+            <br />
+            <br />
+            <div class="row justify-content-around">
+                <div class="card text-white bg-secondary col-2" id="under">
+                    < 18 under weight
+                </div>
+                <div class="card text-white bg-secondary col-2" id="normal">
+                    18.5 - 25 Normal
+                </div>
+                <div class="card text-white bg-secondary  col-2" id="over">
+                    25 - 30 Over Weight
+                </div>
+                <div class="card text-white bg-secondary  col-2" id="obese">
+                    > 30 Obese
+                </div>
+            </div>
+        </div>
+       
+
+    </div>
+
+
+    <script type="text/javascript">
+        $("#submit").click(function () {
+            $("#obese, #over").removeClass("bg-danger");
+            $("#normal,#under").removeClass("bg-success");
+            $.ajax({
+                type: "POST",
+                url: "/BMI/GetBMI",
+                data: {
+                    'Weight': $("#Weight").val(),
+                    'Height': $("#Height").val()
+                },
+                cache: false,
+                success: function (data) {
+                    $("#result").html(data.result);
+                    $("#message").html(data.message);
+
+                    if (data.result > 30)
+                        $("#obese").addClass("bg-danger");
+                    else if (data.result > 25)
+                        $("#over").addClass("bg-danger");
+                    else if (data.result > 18.5)
+                        $("#normal").addClass("bg-success");
+                    else if(data.result > 0)
+                        $("#under").addClass("bg-success");
+
+                }
+            });
+        });
+        $("#reset").click(function () {
+            $("#Weight").val('');
+            $("#Height").val('');
+        });
+    </script>
