@@ -13,6 +13,7 @@
         <div class="row">
             <div class="col-lg-6 mx-auto">
                 <blockquote class="blockquote blockquote-custom bg-white p-5 shadow rounded">
+                    <div class="blockquote-custom-icon bg-info shadow-sm"><i class="fa fa-calculator text-white"></i></div>
                     <div class="form-group">
                         @Html.ValidationMessageFor(m => m.Height)<br />
                         @Html.ValidationMessageFor(m => m.Weight)
@@ -48,7 +49,7 @@
                     <footer class="pt-4 mt-4 border-top">
                         <div class="row justify-content-around">
                             <div class="card text-white bg-dark col-2" id="under">
-                                <h6>< 18 under weight</h6> 
+                                <h6>< 18 under weight</h6>
                             </div>
                             <div class="card text-white bg-dark col-2" id="normal">
                                 <h6>18.5 - 25 Normal</h6>
